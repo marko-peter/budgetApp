@@ -1,0 +1,50 @@
+<div class="form-row">
+  
+  <!-- "year" select -->
+  <div class="form-group col-md-3">      
+    <select id="year" class="form-control form-control-sm"
+      ng-options="year for year in years" ng-model="year">     
+    </select>
+  </div>
+  
+  <!-- "month" select -->
+  <div class="form-group col-md-3">      
+    <select id="month" class="form-control form-control-sm"
+      ng-options="key*1 as value for (key, value) in months" ng-model="month">                            
+    </select>        
+  </div>
+
+  <!-- "reset" button to view all records -->
+  <div class="form-group col-auto">
+    <button class="btn btn-sm btn-primary" ng-click="reset()">
+      View all records
+    </button>          
+  </div>
+
+  <!-- button to select current year and month -->
+  <div class="form-group col-auto">
+    <button class="btn btn-sm btn-primary" ng-click="currentYearAndMonth()">
+      Current month
+    </button>             
+  </div>
+
+</div>        
+
+<!-- Two columns -->
+<div class="row">
+  
+  <!-- "Expenses" column -->
+  <div class="col-md">    
+    <column type="'expenses'" year="year" month="month" months="months"
+      show-message="showMessage(text, type)">
+    </column>
+  </div>
+
+  <!-- "Incomes" column -->
+  <div class="col-md">    
+    <column type="'incomes'" year="year" month="month" months="months"
+      show-message="showMessage(text, type)">
+    </column>
+  </div>
+  
+</div>

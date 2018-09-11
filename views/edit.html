@@ -1,0 +1,58 @@
+<div class="form col-md-6">
+	<h1 class="form-header">Edit item</h1>
+	
+	<!-- edit form -->
+	<form name="editForm" ng-submit="updateItem()" novalidate>
+		
+		<!-- year select -->
+		<div class="form-group">
+			<label for="editFormYear">Year</label>
+			<select class="form-control" name="year" id="editFormYear" ng-required="true"
+				ng-options="year for year in years" ng-model="newItem.year">
+			</select>              
+		</div>
+		
+		<!-- month select -->
+		<div class="form-group">
+			<label for="editFormMonth">Month</label>
+			<select class="form-control" name="month" id="editFormMonth" ng-required="true"
+				ng-options="key*1 as value for (key, value) in months" ng-model="newItem.month">
+			</select>					        
+		</div>			
+
+		<!-- amount input -->
+		<div class="form-group">
+			<label for="editFormAmount">Amount</label>
+			<input type="number" name="amount" class="form-control" id="editFormAmount"
+				ng-required="true" ng-model="newItem.amount">         
+			
+			<!-- form validation alerts -->
+			<small ng-show="editForm.amount.$touched && editForm.amount.$invalid">
+				Invalid input
+			</small>
+			<small ng-show="editForm.amount.$valid && editForm.amount.$viewValue == 0">
+				Amount cannot be zero
+			</small>
+		</div> 
+
+		<!-- description input -->
+		<div class="form-group">
+			<label for="editFormDesc">Description</label>
+			<input type="text" name="desc" class="form-control" id="editFormDesc"
+				ng-required="true" ng-model="newItem.desc">              
+			
+			<!-- form validation alert -->
+			<small ng-show="editForm.desc.$touched && editForm.desc.$invalid">
+				Invalid input
+			</small>
+		</div> 
+		
+		<!-- submit/cancel button -->
+		<button type="submit" class="btn btn-primary"
+			ng-disabled="editForm.$invalid || editForm.amount.$viewValue == 0">
+			Edit
+		</button>
+		<a href="#!/main" class="btn btn-link">Cancel</a>
+	
+	</form>
+</div>

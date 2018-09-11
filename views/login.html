@@ -1,0 +1,41 @@
+<div class="form col-md-6">
+  <h1 class="form-header">Log in</h1>
+  
+  <!-- login form -->
+  <form name="logInForm" ng-submit="logIn()" novalidate>
+    
+    <!-- email input -->
+    <div class="form-group">
+      <label for="logInFormEmail">Email address</label>
+      <input type="email" name="email" class="form-control" id="logInFormEmail"
+        placeholder="Enter email" ng-required="true" ng-model="email">      
+      
+      <!-- form validation alerts -->
+      <small ng-show="logInForm.email.$touched && logInForm.email.$pristine">
+        Email required
+      </small>
+      <small ng-show="logInForm.email.$touched && logInForm.email.$dirty && logInForm.email.$viewValue == ''">
+        Email required
+      </small>
+      <small ng-show="logInForm.email.$touched && logInForm.email.$viewValue.length && logInForm.email.$invalid">
+        Invalid email address
+      </small>  
+    </div>
+    
+    <!-- password input -->
+    <div class="form-group">
+      <label for="logInFormPassword">Password</label>
+      <input type="password" name="password" class="form-control" id="logInFormPassword"
+        placeholder="Password" ng-required="true" ng-model="password">
+      
+      <!-- form validation alert -->
+      <small ng-show="logInForm.password.$touched && logInForm.password.$invalid">
+        Password required
+      </small>
+    </div> 
+    
+    <!-- submit button -->
+    <button type="submit" class="btn btn-primary" ng-disabled="logInForm.$invalid">Submit</button>
+  
+  </form>
+</div>
