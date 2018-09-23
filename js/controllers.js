@@ -230,6 +230,9 @@ app.controller('editItemCtrl', ['$scope', '$location', '$routeParams', 'dataFact
 // controller for login page
 app.controller('loginCtrl', ['$scope', function ($scope) {   
 
+    $scope.email = '';
+    $scope.password = '';
+
     $scope.logIn = function() {          
         firebase.auth().signInWithEmailAndPassword($scope.email, $scope.password)
         .then( () => {
@@ -245,6 +248,9 @@ app.controller('loginCtrl', ['$scope', function ($scope) {
 
 // controller for register page
 app.controller('registerCtrl', ['$scope', '$location', function ($scope, $location) {   
+
+    $scope.email = '';
+    $scope.password = '';
 
     $scope.register = function() {          
         firebase.auth().createUserWithEmailAndPassword($scope.email, $scope.password)

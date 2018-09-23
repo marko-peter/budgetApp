@@ -1,0 +1,32 @@
+<!-- email input -->
+<div class="form-group">
+  <label for="formEmail">Email address</label>
+  <input type="email" name="email" class="form-control" id="formEmail"
+    placeholder="Enter email" ng-required="true" ng-model="$parent.email">      
+  
+  <!-- form validation alerts -->
+  <small ng-show="myForm.email.$touched && myForm.email.$pristine">
+    Email required
+  </small>
+  <small ng-show="myForm.email.$touched && myForm.email.$dirty && myForm.email.$viewValue == ''">
+    Email required
+  </small>
+  <small ng-show="myForm.email.$touched && myForm.email.$viewValue.length && myForm.email.$invalid">
+    Invalid email address
+  </small>        
+</div>
+
+<!-- password input -->
+<div class="form-group">
+  <label for="formPassword">Password</label>
+  <input type="password" name="password" class="form-control" id="formPassword"
+    placeholder="Password" ng-required="true" ng-model="$parent.password">
+  
+  <!-- form validation alert -->
+  <small ng-show="myForm.password.$touched && myForm.password.$invalid">
+    Password required
+  </small>              
+</div> 
+
+<!-- submit button -->
+<button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">Submit</button>
